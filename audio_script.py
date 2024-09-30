@@ -12,9 +12,11 @@ from yt_dlp import YoutubeDL
 import tkinter as tk
 from tkinter import ttk
 
+# Manage the audio tab
 def _audio_tab(notebook):
     audio_tab = ttk.Frame(notebook)
-    notebook.add(audio_tab, text="Audio Downloader")
+    audio_tab.audio_tab_img = tk.PhotoImage(file="icons/audio_icon.png")
+    notebook.add(audio_tab, text="Audio Downloader", image=audio_tab.audio_tab_img, compound=tk.LEFT)
 
     # Audio Link Manager
     url_label = tk.Label(audio_tab, text="Enter Video/Playlist URL:")
@@ -31,6 +33,7 @@ def _audio_tab(notebook):
     audio_quality_dropdown.current(1)
     audio_quality_dropdown.pack(pady=5)
 
+    # Manage the playlist download
     def playlist_downloader():
         playlist_url = url_entry.get()
         quality = audio_quality_var.get()
@@ -57,6 +60,7 @@ def _audio_tab(notebook):
                 new_file.write_audiofile(mp3_path)
                 os.remove(audio_path)
         
+        # Shows when finish the download
         print("Audio download complete!")
 
     download_audio_button = tk.Button(audio_tab, text="Download", command=playlist_downloader)

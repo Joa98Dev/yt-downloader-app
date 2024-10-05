@@ -4,6 +4,12 @@ This is a basic app made with Python, that let you download videos and audios fr
 
 ## How to use it? 🤔
 
+Turn the virtual environment on:
+
+* Linux and Mac: source ytdownloader/bin/activate
+
+* Windows: ytdownloader\Scripts\activate
+
 The app has two tabs:
 
 1. **Video Downloader** 📼
